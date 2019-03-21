@@ -8,7 +8,7 @@
     "dev": "NODE_ENV=development nodemon --exec babel-node src",
     "start": "node dist",
     "pretest": "eslint --fix --ignore-path .eslintignore .",
-    "test": "NODE_ENV=testing mocha"
+    "test": "NODE_ENV=testing PORT=3001 mocha"
   },
   "keywords": [],
   "author": "",
