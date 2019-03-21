@@ -1,18 +1,14 @@
 import User from './user.model'
 
 export async function getUsers (req, res) {
-  // pagination
   const limit = parseInt(req.query.limit, 10) || 5
   const skip = parseInt(req.query.skip, 10) || 0
-  // sorting
+
   const sortBy = req.query.sortBy || 'name'
-  // filtering
-  const filter = {}
-  if (req.query.name) {
-    filter.name = req.query.name
-  }
-  if (req.query.email) {
-    filter.email = req.query.email
+
+  const filter = {
+    ...(req.query.name && { name: req.query.name }),
+    ...(req.query.email && { email: req.query.email })
   }
 
   try {
