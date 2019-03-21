@@ -4,17 +4,17 @@ export async function getUsers (req, res) {
   const limit = parseInt(req.query.limit, 10) || 5
   const skip = parseInt(req.query.skip, 10) || 0
 
-  const sort = {
+  const sortData = {
     ...(req.query.sortBy && { [req.query.sortBy]: 1 })
   }
 
-  const filter = {
+  const filterData = {
     ...(req.query.name && { name: req.query.name }),
     ...(req.query.email && { email: req.query.email })
   }
 
   try {
-    const users = await User.list({ limit, skip, sort, filter })
+    const users = await User.list({ limit, skip, sortData, filterData })
 
     return res.status(200).json(users)
   } catch (e) {

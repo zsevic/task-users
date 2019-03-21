@@ -29,12 +29,12 @@ const UserSchema = new Schema({
 })
 
 UserSchema.statics = {
-  list ({ limit, skip, sort, filter = {} }) {
-    return this.find(filter, {
+  list ({ limit, skip, sortData, filterData }) {
+    return this.find(filterData, {
       _id: 0,
       __v: 0
     })
-      .sort(sort)
+      .sort(sortData)
       .skip(skip)
       .limit(limit)
   }
