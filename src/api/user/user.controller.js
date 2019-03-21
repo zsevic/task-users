@@ -4,7 +4,9 @@ export async function getUsers (req, res) {
   const limit = parseInt(req.query.limit, 10) || 5
   const skip = parseInt(req.query.skip, 10) || 0
 
-  const sortBy = req.query.sortBy || 'name'
+  const sort = {
+    ...(req.query.sortBy && { [req.query.sortBy]: 1 })
+  }
 
   const filter = {
     ...(req.query.name && { name: req.query.name }),
@@ -12,7 +14,7 @@ export async function getUsers (req, res) {
   }
 
   try {
-    const users = await User.list({ limit, skip, sortBy, filter })
+    const users = await User.list({ limit, skip, sort, filter })
 
     return res.status(200).json(users)
   } catch (e) {
