@@ -5,16 +5,13 @@ export async function getUsers (req, res) {
   const skip = parseInt(req.query.skip, 10) || 0
 
   const sortData = {
-    ...(req.query.sortBy && { [req.query.sortBy]: 1 })
+    ...(req.query.sortBy ? { [req.query.sortBy]: 1 } : { name: 1 })
   }
 
-  const filterData = {
-    ...(req.query.name && { name: req.query.name }),
-    ...(req.query.email && { email: req.query.email })
-  }
+  const searchData = req.query.search || ''
 
   try {
-    const users = await User.list({ limit, skip, sortData, filterData })
+    const users = await User.list({ limit, skip, sortData, searchData })
 
     return res.status(200).json(users)
   } catch (e) {
