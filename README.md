@@ -36,13 +36,11 @@ GET /users?limit=2&skip=2
 GET /users?sortBy=name
 # get users sorted by email
 GET /users?sortBy=email
-# get users filtered by name
-GET /users?name=<NAME>
-# get users filtered by email
-GET /users?email=<EMAIL>
+# get users filtered by name or email
+GET /users?search=<NAME or EMAIL>
 # sort and filter
-GET /users?sortBy=email&name=<NAME>
-GET /users?limit=2&sortBy=name&email=<EMAIL>
+GET /users?sortBy=email&search=<NAME or EMAIL>
+GET /users?limit=2&sortBy=name&search=<NAME or EMAIL>
 ```
 
 ### :package: Technologies used
