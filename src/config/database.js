@@ -5,6 +5,8 @@ import User from '../api/user/user.model'
 
 mongoose.Promise = global.Promise
 mongoose.set('useCreateIndex', true)
+mongoose.set('useNewUrlParser', true)
+mongoose.set('useUnifiedTopology', true)
 
 export const createUsers = async () => {
   for (let i = 0; i < 6; i++) {
@@ -19,10 +21,7 @@ export const createUsers = async () => {
 }
 
 try {
-  mongoose.connect(
-    constants.MONGODB_URL,
-    { useNewUrlParser: true }
-  )
+  mongoose.connect(constants.MONGODB_URL)
 } catch (err) {
   mongoose.createConnection(constants.MONGODB_URL)
 }

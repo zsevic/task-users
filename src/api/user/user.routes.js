@@ -3,6 +3,6 @@ import * as userController from './user.controller'
 
 const routes = new Router()
 
-routes.get('/', userController.getUsers)
+routes.get('/', userController.getUserListHandler)
 
 export default routes
