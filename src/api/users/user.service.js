@@ -1,5 +1,9 @@
-import { getUserList } from './user.repository'
+import userRepository from './user.repository'
 
-export async function getUsers (options) {
-  return getUserList(options)
+export async function getUserList (options) {
+  return userRepository.getUserList(options)
+}
+
+export default {
+  getUserList
 }

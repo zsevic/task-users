@@ -1,4 +1,4 @@
-import { getUsers } from './user.service'
+import userService from './user.service'
 
 export async function getUserListHandler (req, res) {
   const limit = parseInt(req.query.limit, 10) || 5
@@ -9,7 +9,7 @@ export async function getUserListHandler (req, res) {
   const searchData = req.query.search || ''
 
   try {
-    const users = await getUsers({ limit, skip, sortData, searchData })
+    const users = await userService.getUserList({ limit, skip, sortData, searchData })
 
     return res.status(200).json(users)
   } catch (e) {
