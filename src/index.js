@@ -13,10 +13,10 @@ app.use(bodyParser.json())
 app.use(bodyParser.urlencoded({ extended: false }))
 
 app.get('/', (req, res) => {
-  res.send('Hello from task-users<br>Check out <a href="/users">users</a>')
+  res.send('Hello from task-users<br>Check out <a href="/api/users">users</a>')
 })
 
-apiRoutes(app)
+app.use('/api', apiRoutes)
 
 app.listen(PORT, () => {
   console.log(`Server is running on port ${PORT}`)

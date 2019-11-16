@@ -1,7 +1,7 @@
 import mongoose from 'mongoose'
 import faker from 'faker'
 import constants from './constants'
-import User from '../api/user/user.model'
+import User from '../api/users/user.model'
 
 mongoose.Promise = global.Promise
 mongoose.set('useCreateIndex', true)
