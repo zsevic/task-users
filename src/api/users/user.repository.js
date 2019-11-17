@@ -27,7 +27,3 @@ export async function getUserList ({ limit, skip, sortData, searchData }) {
 
   return User.aggregate(query)
 }
-
-export default {
-  getUserList
-}

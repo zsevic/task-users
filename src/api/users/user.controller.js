@@ -1,4 +1,4 @@
-import userService from './user.service'
+import * as userService from './user.service'
 
 export async function getUserListHandler (req, res) {
   const limit = parseInt(req.query.limit, 10) || 5
