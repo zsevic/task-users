@@ -1,8 +1,8 @@
-import { Router } from 'express'
-import userRoutes from './users/user.routes'
+import { Router } from 'express';
+import userRoutes from './users/user.routes';
 
-const routes = new Router()
+const routes = new Router();
 
-routes.use('/users', userRoutes)
+routes.use('/users', userRoutes);
 
-export default routes
+export default routes;

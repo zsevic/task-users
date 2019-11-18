@@ -1,11 +1,11 @@
-import mongoose, { Schema } from 'mongoose'
-import validator from 'validator'
+import mongoose, { Schema } from 'mongoose';
+import validator from 'validator';
 
 const UserSchema = new Schema({
   name: {
     type: String,
     required: [true, 'Name is required!'],
-    trim: true
+    trim: true,
   },
 
   email: {
@@ -13,19 +13,19 @@ const UserSchema = new Schema({
     required: [true, 'Email is required!'],
     unique: true,
     validate: {
-      validator (email) {
-        return validator.isEmail(email)
-      }
-    }
+      validator(email) {
+        return validator.isEmail(email);
+      },
+    },
   },
 
   jobTitle: {
-    type: String
+    type: String,
   },
 
   address: {
-    type: String
-  }
-})
+    type: String,
+  },
+});
 
-export default mongoose.model('User', UserSchema)
+export default mongoose.model('User', UserSchema);
